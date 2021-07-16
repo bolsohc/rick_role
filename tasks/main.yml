@@ -1,0 +1,14 @@
+---
+
+- name: remove motd
+  file:
+    path: /etc/motd
+    sate: absent
+
+- name: install rick role motd
+  template:
+    src: template/rick.j2
+    dest: "{{ motd_path }}"
+    owner: root
+    group: root
+    mode: 0644
